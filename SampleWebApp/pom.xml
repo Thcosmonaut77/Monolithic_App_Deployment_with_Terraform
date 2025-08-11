@@ -33,4 +33,15 @@
       </plugin>
     </plugins>
   </build>
+
+   <distributionManagement>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>http://ec2-3-85-202-31.compute-1.amazonaws.com:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>maven-releases</id>
+            <url>http://ec2-3-85-202-31.compute-1.amazonaws.com:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
 </project>
