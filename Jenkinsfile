@@ -34,12 +34,12 @@ pipeline {
         }
         stage('push to nexus') {
             steps {
-             nexusArtifactUploader artifacts: [[artifactId: 'SampleWebApp', classifier: '', file: 'SampleWebApp/target/SampleWebApp.war', type: 'war']], credentialsId: 'nexus-access', groupId: 'SampleWebApp', nexusUrl: 'ec2-3-85-202-31.compute-1.amazonaws.com:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-SNAPSHOT'
+             nexusArtifactUploader artifacts: [[artifactId: 'SampleWebApp', classifier: '', file: 'SampleWebApp/target/SampleWebApp.war', type: 'war']], credentialsId: 'nexus-access', groupId: 'SampleWebApp', nexusUrl: 'ec2-13-220-115-112.compute-1.amazonaws.com:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-SNAPSHOT'
         }
         }    
         stage('deploy to tomcat') {
           steps {
-            deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'tomcat-access', path: '', url: 'http://54.91.234.50:8080/')], contextPath: 'myapp', war: '**/*.war'
+            deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'tomcat-access', path: '', url: 'http://34.228.54.202:8080')], contextPath: 'myapp', war: '**/*.war'
               
           }
             
