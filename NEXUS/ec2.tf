@@ -34,7 +34,7 @@ resource "aws_security_group" "ec2_sg_nexus" {
   description = "allow access on ports 8081 and 22"
   vpc_id      = aws_default_vpc.default_vpc.id
 
-  # allow access on port 8080
+  # allow access on port 8081
   ingress {
     description      = "nexus access"
     from_port        = 8081
