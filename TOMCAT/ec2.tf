@@ -33,7 +33,7 @@ resource "aws_security_group" "ec2_sg_tomcat" {
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
-    cidr_blocks = ["3.80.98.215/32"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
