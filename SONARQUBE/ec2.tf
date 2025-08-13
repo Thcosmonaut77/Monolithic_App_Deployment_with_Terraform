@@ -23,8 +23,8 @@ resource "aws_default_subnet" "subnet" {
 }
 
 # create security group for the ec2 instance
-resource "aws_security_group" "ec2_sg_sonarqube" {
-  name        = "ec2 security group_sonarqube"
+resource "aws_security_group" "sonar_sg" {
+  name        = "Sonarqube sg"
   description = "allow access on ports 9000 and 22"
   vpc_id      = aws_default_vpc.default_vpc.id
 
@@ -102,7 +102,7 @@ resource "aws_instance" "ec2_instance" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
   subnet_id                   = aws_default_subnet.subnet.id
-  vpc_security_group_ids      = [aws_security_group.ec2_sg_sonarqube.id]
+  vpc_security_group_ids      = [aws_security_group.sonar_sg.id]
   key_name                    = var.kp
   user_data                   = data.template_file.sonar.rendered
 

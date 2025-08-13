@@ -24,3 +24,9 @@ variable "kp" {
   type = string
   sensitive = true
 }
+
+variable "sonar_ip" {
+  description = "IP address or sonarqube server"
+  type = string
+  
+}

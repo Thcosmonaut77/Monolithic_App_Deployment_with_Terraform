@@ -23,8 +23,8 @@ resource "aws_default_subnet" "subnet" {
 }
 
 # SECURITY GROUP for EC2
-resource "aws_security_group" "ec2_sg_tomcat" {
-  name        = "ec2-security-group-tomcat"
+resource "aws_security_group" "tomcat_sg" {
+  name        = "Tomcat SG"
   description = "Allow access on ports 8080, 22, 80, and 443"
   vpc_id      = aws_default_vpc.default_vpc.id
 
@@ -111,7 +111,7 @@ resource "aws_instance" "ec2_instance" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
   subnet_id                   = aws_default_subnet.subnet.id
-  vpc_security_group_ids      = [aws_security_group.ec2_sg_tomcat.id]
+  vpc_security_group_ids      = [aws_security_group.tomcat_sg.id]
   key_name                    = var.kp
   user_data                   = data.template_file.tomcat.rendered
 

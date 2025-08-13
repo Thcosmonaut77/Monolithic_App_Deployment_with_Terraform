@@ -29,8 +29,8 @@ resource "aws_default_subnet" "subnet" {
 
 
 # create security group for the ec2 instance
-resource "aws_security_group" "ec2_sg_nexus" {
-  name        = "ec2 security group_nexus"
+resource "aws_security_group" "nexus_sg" {
+  name        = "Nexus security group"
   description = "allow access on ports 8081 and 22"
   vpc_id      = aws_default_vpc.default_vpc.id
 
@@ -100,7 +100,7 @@ resource "aws_instance" "ec2_instance" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
   subnet_id              = aws_default_subnet.subnet.id
-  vpc_security_group_ids = [aws_security_group.ec2_sg_nexus.id]
+  vpc_security_group_ids = [aws_security_group.nexus_sg.id]
   key_name               = var.kp
   user_data = file("install_nexus.sh")
 

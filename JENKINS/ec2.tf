@@ -23,8 +23,8 @@ resource "aws_default_subnet" "subnet" {
 }
 
 # SECURITY GROUP for EC2
-resource "aws_security_group" "ec2_sg1" {
-  name        = "ec2-security-group-1"
+resource "aws_security_group" "jenkins_sg" {
+  name        = "Jenkins SG"
   description = "Allow access on ports 8080, 22, 80, and 443"
   vpc_id      = aws_default_vpc.default_vpc.id
 
@@ -33,8 +33,16 @@ resource "aws_security_group" "ec2_sg1" {
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = [var.my_ip]
   }
+
+    ingress {
+    description = "HTTPS access"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = [var.sonar_ip]
+}
 
   ingress {
     description = "SSH access"
@@ -99,7 +107,7 @@ resource "aws_instance" "ec2_instance" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
   subnet_id                   = aws_default_subnet.subnet.id
-  vpc_security_group_ids      = [aws_security_group.ec2_sg1.id]
+  vpc_security_group_ids      = [aws_security_group.jenkins_sg.id]
   key_name                    = var.kp
   user_data                   = file("install_jenkins.sh")
 
