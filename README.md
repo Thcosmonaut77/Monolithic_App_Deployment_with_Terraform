@@ -27,12 +27,12 @@ Terraform code for each service resides in separate directories.
 
 ```mermaid
 flowchart LR
-    Developer((Developer)) -->|Push Code| Jenkins
-    Jenkins -->|Build with Maven| Nexus
-    Jenkins -->|Code Scan| SonarQube
-    Nexus -->|Deploy Artifact (WAR)| Tomcat
+    Dev([Developer]) -->|Push Code| Jenkins[Jenkins]
+    Jenkins -->|Build with Maven| Nexus[Nexus Repository]
+    Jenkins -->|Code Scan| SonarQube[SonarQube]
+    Nexus -->|Deploy Artifact WAR| Tomcat[Tomcat Server]
     SonarQube -->|Report| Jenkins
-    Tomcat -->|Serve App| User((End User))
+    Tomcat -->|Serve App| User([End User])
 ```    
 
 ## Repository Structure
