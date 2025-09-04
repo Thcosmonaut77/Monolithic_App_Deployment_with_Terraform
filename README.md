@@ -61,7 +61,7 @@ Before deployment, ensure you have:
 ## Deployment
 Each infrastructure component is deployed independently from its directory.  
 
-Example (for Jenkins):
+
 ```bash
 cd JENKINS
 terraform init
