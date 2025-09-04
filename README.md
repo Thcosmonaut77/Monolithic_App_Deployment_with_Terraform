@@ -30,7 +30,7 @@ flowchart LR
     Developer((Developer)) -->|Push Code| Jenkins
     Jenkins -->|Build with Maven| Nexus
     Jenkins -->|Code Scan| SonarQube
-    Nexus -->|Deploy Artifact (.war)| Tomcat
+    Nexus -->|Deploy Artifact (WAR)| Tomcat
     SonarQube -->|Report| Jenkins
     Tomcat -->|Serve App| User((End User))
 ```    
