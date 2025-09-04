@@ -43,13 +43,7 @@ resource "aws_security_group" "nexus_sg" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
 
-  # ingress {
-  #   description      = "http proxy access"
-  #   from_port        = 8082
-  #   to_port          = 8082
-  #   protocol         = "tcp"
-  #   cidr_blocks      = ["0.0.0.0/0"]
-  # }
+
 
   # allow access on port 22
   ingress {
