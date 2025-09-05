@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Terraform](https://img.shields.io/badge/Terraform-IaC-623CE4?logo=terraform&logoColor=white)
+![AWS](https://img.shields.io/badge/Cloud-AWS-FF9900?logo=amazon-aws)
 ![Jenkins](https://img.shields.io/badge/Jenkins-CI/CD-D24939?logo=jenkins&logoColor=white)
 ![SonarQube](https://img.shields.io/badge/SonarQube-Code%20Quality-4E9BCD?logo=sonarqube&logoColor=white)
 ![Nexus](https://img.shields.io/badge/Nexus-Artifact%20Repo-2E4E7E?logo=sonatype&logoColor=white)
