@@ -124,6 +124,8 @@ terraform apply --auto-approve
 
    • After first login → set username/password + install suggested plugins
 
+   • Plugins to install: Deploy to container, SonarQube Scanner, Nexus Artifact Uploader
+
 ### SonarQube
 
 • Network: Default VPC, subnet, and availability zone
